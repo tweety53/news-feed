@@ -24,7 +24,7 @@
             </div>
         @endforeach
     @else
-        Новостей не найдено
+        Новостей не найдено.
     @endif
     {{ $news->links() }}
 @endsection

@@ -1,11 +1,5 @@
 <?php
-/**
- * ParserConfig.php
- *
- * Created: 11/27/19 2:30 PM
- * User: tweety53
- * Project: feed
- */
+declare(strict_types=1);
 
 namespace App\Feed\Parser;
 
@@ -84,10 +78,28 @@ class ParserConfig
             throw new InvalidConfig('You must provide url for specified parsing source.');
         }
 
-        self::$listParams = $parserConfig['list_params'];
+        self::$listParams = $parserConfig['list_params'] ?? [];
+
+        if (empty(self::$listParams)) {
+            throw new InvalidConfig('You must provide list_params for specified parsing source.');
+        }
+
         self::$titleParams = $parserConfig['title_params'];
+        if (empty(self::$titleParams)) {
+            throw new InvalidConfig('You must provide list_params for specified parsing source.');
+        }
+
         self::$descriptionParams = $parserConfig['description_params'];
+
+        if (empty(self::$descriptionParams)) {
+            throw new InvalidConfig('You must provide list_params for specified parsing source.');
+        }
+
         self::$imageParams = $parserConfig['image_params'];
+
+        if (empty(self::$imageParams)) {
+            throw new InvalidConfig('You must provide list_params for specified parsing source.');
+        }
     }
 
     /**

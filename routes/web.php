@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('news', 'Feed\NewsItemController@index')->name('news.index');
 
 Route::get('news/{id}', 'Feed\NewsItemController@view')->name('news.item.view');

@@ -1,14 +1,7 @@
 <?php
-/**
- * UrlFetcher.php
- *
- * Created: 11/27/19 3:33 PM
- * User: tweety53
- * Project: feed
- */
+declare(strict_types=1);
 
 namespace App\Feed;
-
 
 use Exception;
 

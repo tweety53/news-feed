@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Feed;
 
@@ -16,7 +17,11 @@ class NewsItemController extends Controller
      */
     public function index()
     {
-        $news = NewsItem::select(['id', 'created_at', 'title', 'short_description'])->paginate(10);
+        $news = NewsItem::select(
+            [
+                'id', 'created_at', 'title', 'short_description',
+            ]
+        )->paginate(10);
 
         return view('news_item.index', ['news' => $news]);
     }
@@ -27,7 +32,11 @@ class NewsItemController extends Controller
      */
     public function view(int $id)
     {
-        $newsItem = NewsItem::select(['id', 'created_at', 'title', 'description', 'image_url'])->findOrFail($id);
+        $newsItem = NewsItem::select(
+            [
+                'id', 'created_at', 'title', 'description', 'image_url',
+            ]
+        )->findOrFail($id);
 
         return view('news_item.view', ['newsItem' => $newsItem]);
     }
